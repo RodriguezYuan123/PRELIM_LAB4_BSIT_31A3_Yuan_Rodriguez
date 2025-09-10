@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "LibraryManagementSystem_Rodriguez/1.0.0": {
+        "runtime": {
+          "LibraryManagementSystem_Rodriguez.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LibraryManagementSystem_Rodriguez/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
