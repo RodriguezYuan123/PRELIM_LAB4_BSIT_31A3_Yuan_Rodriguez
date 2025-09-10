@@ -1,0 +1,44 @@
+﻿@model List<YourNamespace.Controllers.Book>
+
+<style>
+    table {
+        width: 80%;
+        margin-top: 30px;
+        border-collapse: collapse;
+        background-color: #fefefe;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 10px 15px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<h2>All Books</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Book Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>Is Available</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var book in Model)
+    {
+    <tr>
+        <td>@book.Title</td>
+        <td>@book.Author.Name</td>
+        <td>@book.Genre</td>
+        <td>@book.IsAvailable</td>
+    </tr>
+    }
+    </tbody>
+</table>
