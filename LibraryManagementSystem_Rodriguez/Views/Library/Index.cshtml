@@ -1,0 +1,63 @@
+﻿@using User_1 = User
+@model List<User_1>
+
+<style>
+    .borrower-box {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 30px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        background-color: #f9f9f9;
+        width: 80%;
+    }
+
+    h3 {
+        margin-bottom: 10px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+        text-align: left;
+    }
+
+    th {
+        background-color: #eee;
+    }
+</style>
+
+@foreach (var user in Model)
+{
+    <div class="borrower-box">
+        <h3>Borrower: @user.Username</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Date Borrowed</th>
+                <th>Date Returned</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var record in user.BorrowedBooks)
+            {
+                <tr>
+                    <td>@record.Book.Title</td>
+                    <td>@record.Book.Author.Name</td>
+                    <td>@record.Book.Genre</td>
+                    <td>@record.DateBorrowed.ToString("yyyy-MM-dd")</td>
+                    <td>@(record.DateReturned.HasValue ? record.DateReturned.Value.ToString("yyyy-MM-dd") : "-")</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}

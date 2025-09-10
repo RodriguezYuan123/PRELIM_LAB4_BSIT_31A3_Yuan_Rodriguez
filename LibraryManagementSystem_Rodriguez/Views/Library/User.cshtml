@@ -1,0 +1,30 @@
+﻿@model List<User>
+
+@foreach (var user in Model)
+{
+    <h3>Borrower: @user.Username</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Date Borrowed</th>
+            <th>Date Returned</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var record in user.BorrowedBooks)
+        {
+            <tr>
+                <td>@record.Book.Title</td>
+                <td>@record.Book.Author.Name</td>
+                <td>@record.Book.Genre</td>
+                <td>@record.DateBorrowed.ToString("yyyy-MM-dd")</td>
+                <td>@(record.DateReturned.HasValue ? record.DateReturned.Value.ToString("yyyy-MM-dd") : "-")</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <br />
+}
